@@ -1,29 +1,10 @@
-import pymysql
+import os
+from pydantic import BaseSettings
 
-# Database connection settings
-endpoint = "localhost"
-username = "root"
-password = "admin"
-database = "TenantGuard"
+class Settings(BaseSettings):
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "mysql+pymysql://root:admin@localhost/TenantGuard")
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "your_secret_key")
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
-# Connect to the database
-connection = pymysql.connect(
-    host=endpoint,
-    user=username,
-    password=password,
-    database=database
-)
-
-# Create a cursor object
-cursor = connection.cursor()
-
-# Execute a query
-cursor.execute("SELECT VERSION()")
-
-# Fetch one result
-result = cursor.fetchone()
-print("Database version:", result)
-
-# Close the cursor and connection
-cursor.close()
-connection.close()
+settings = Settings()
