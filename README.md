@@ -23,5 +23,5 @@ TenantGuard is a multi-tenant backend application built with FastAPI, SQLAlchemy
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/TenantGuard.git
+   git clone [https://github.com/okusjid/TenantGuard.git](https://github.com/okusjid/TenantGaurd)
    cd TenantGuard
