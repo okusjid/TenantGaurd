@@ -4,7 +4,7 @@ class Tenant(BaseModel):
     name: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class TenantCreate(BaseModel):
     name: str

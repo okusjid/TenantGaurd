@@ -13,4 +13,4 @@ class User(UserBase):
 
     class Config:
         arbitrary_types_allowed = True
-        orm_mode = True
+        from_attributes = True

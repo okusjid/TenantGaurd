@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from datetime import timedelta
 from app.auth.jwt import create_access_token, get_current_user
 from app.auth.auth import authenticate_user
+from app.config import settings
 from app.dependencies.database import get_db
 from app.schemas.auth import Token
 from app.schemas.user import User
