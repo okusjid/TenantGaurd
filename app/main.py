@@ -12,7 +12,7 @@ tenant_model.Base.metadata.create_all(bind=engine)
 role_model.Base.metadata.create_all(bind=engine)
 
 # Add Middleware
-app.add_middleware(TenantMiddleware)
+#app.add_middleware(TenantMiddleware)
 
 # Include Routers
 app.include_router(auth.router)
