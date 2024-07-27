@@ -1,23 +1,16 @@
-from pydantic import BaseModel
-from typing import List
+from pydantic import BaseModel, EmailStr
 
-class Role(BaseModel):
-    name: str
-
-    class Config:
-        orm_mode = True
-
-class User(BaseModel):
+class UserBase(BaseModel):
     username: str
-    email: str
-    tenant_id: int
-    roles: List[Role] = []
+    email: EmailStr
 
-    class Config:
-        orm_mode = True
-
-class UserCreate(BaseModel):
-    username: str
-    email: str
+class UserCreate(UserBase):
     password: str
+
+class User(UserBase):
+    id: int
     tenant_id: int
+
+    class Config:
+        arbitrary_types_allowed = True
+        orm_mode = True
